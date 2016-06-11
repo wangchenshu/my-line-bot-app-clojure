@@ -9,9 +9,6 @@
 (def options {:timeout 200             ; ms
               :user-agent "User-Agent-string"
               :headers {"Content-Type" "application/json", "X-Line-ChannelID" (config :channel-id), "X-Line-ChannelSecret" (config :channel-secret), "X-Line-Trusted-User-With-ACL" (config :channel-mid)}})
-
-(defn index []
-  (str "<h1>Hello, World!</h1>"))
   
 (defn callback-handler [req]
   (let [res (json/read-str (slurp(req :body)) :key-fn keyword)] 
@@ -26,7 +23,6 @@
         (println "Response 1's status: " (:status @resp1))))))
 
 (defroutes main-routes
-  (GET "/" [] (index))
   (POST "/callback" req (callback-handler req)))
 
 (defn -main []
