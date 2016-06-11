@@ -4,6 +4,9 @@ A Clojure library designed to ... well, that part is up to you.
 
 ## Usage
 
+## Install leiningen
+Please reference [My Clojure-102](https://github.com/wangchenshu/clojure-102/blob/master/clojure-102.org)
+
 FIXME
 
 ## License
