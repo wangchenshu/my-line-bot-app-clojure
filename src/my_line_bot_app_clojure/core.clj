@@ -12,7 +12,7 @@
               "X-Line-ChannelID" (config :channel-id),
               "X-Line-ChannelSecret" (config :channel-secret),
               "X-Line-Trusted-User-With-ACL" (config :channel-mid)})
-(def options {:timeout 200 :headers headers})
+(def options {:timeout 1000 :headers headers})
 
 (defn callback-handler [req]
   (let [res (json/read-str (slurp(req :body)) :key-fn keyword)] 
@@ -23,7 +23,7 @@
           send-body (message/create-text-message (content :from) (content :text))]
       (let [resp (http/post (str (config :channel-url) (config :event-path))
                             (assoc options :body (json/write-str send-body)))]
-        (println "Response 's status: " (:status @resp))))))
+        (:body @resp)))))
 
 (defroutes main-routes
   (POST "/callback" req (callback-handler req)))
