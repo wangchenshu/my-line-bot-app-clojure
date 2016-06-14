@@ -8,5 +8,5 @@
                  [ring/ring-core "1.4.0"]
                  [ring/ring-jetty-adapter "1.4.0"]
                  [compojure "1.5.0"]
-                 [http-kit "2.1.18"]]
+                 [http-kit "2.1.19"]]
   :main my-line-bot-app-clojure.core)
